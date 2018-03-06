@@ -8,20 +8,24 @@
 
 /* Begin PBXBuildFile section */
 		B7FF4D86204EDECC004F0361 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7FF4D85204EDECC004F0361 /* AppDelegate.swift */; };
-		B7FF4D88204EDECC004F0361 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7FF4D87204EDECC004F0361 /* ViewController.swift */; };
+		B7FF4D88204EDECC004F0361 /* RootViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7FF4D87204EDECC004F0361 /* RootViewController.swift */; };
 		B7FF4D8B204EDECC004F0361 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B7FF4D89204EDECC004F0361 /* Main.storyboard */; };
 		B7FF4D8D204EDECC004F0361 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B7FF4D8C204EDECC004F0361 /* Assets.xcassets */; };
 		B7FF4D90204EDECC004F0361 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B7FF4D8E204EDECC004F0361 /* LaunchScreen.storyboard */; };
+		B7FF4D9F204EE0A2004F0361 /* CoreDataManger.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7FF4D9E204EE0A2004F0361 /* CoreDataManger.swift */; };
+		B7FF4DA3204EE575004F0361 /* Notes.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = B7FF4DA1204EE575004F0361 /* Notes.xcdatamodeld */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		B7FF4D82204EDECC004F0361 /* Notes(Core Data Example).app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Notes(Core Data Example).app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		B7FF4D85204EDECC004F0361 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		B7FF4D87204EDECC004F0361 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		B7FF4D87204EDECC004F0361 /* RootViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RootViewController.swift; sourceTree = "<group>"; };
 		B7FF4D8A204EDECC004F0361 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		B7FF4D8C204EDECC004F0361 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		B7FF4D8F204EDECC004F0361 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		B7FF4D91204EDECC004F0361 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		B7FF4D9E204EE0A2004F0361 /* CoreDataManger.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataManger.swift; sourceTree = "<group>"; };
+		B7FF4DA2204EE575004F0361 /* Notes.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Notes.xcdatamodel; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -54,14 +58,80 @@
 		B7FF4D84204EDECC004F0361 /* Notes(Core Data Example) */ = {
 			isa = PBXGroup;
 			children = (
-				B7FF4D85204EDECC004F0361 /* AppDelegate.swift */,
-				B7FF4D87204EDECC004F0361 /* ViewController.swift */,
-				B7FF4D89204EDECC004F0361 /* Main.storyboard */,
-				B7FF4D8C204EDECC004F0361 /* Assets.xcassets */,
-				B7FF4D8E204EDECC004F0361 /* LaunchScreen.storyboard */,
-				B7FF4D91204EDECC004F0361 /* Info.plist */,
+				B7FF4DA0204EE566004F0361 /* Core Data */,
+				B7FF4D9D204EE087004F0361 /* Managers */,
+				B7FF4D97204EDEE3004F0361 /* Application Delegate */,
+				B7FF4D98204EDF06004F0361 /* View Controllers */,
+				B7FF4D9A204EDF1E004F0361 /* Storyboards */,
+				B7FF4D9B204EDF25004F0361 /* Resources */,
+				B7FF4D9C204EDF2D004F0361 /* Supporting files */,
 			);
 			path = "Notes(Core Data Example)";
+			sourceTree = "<group>";
+		};
+		B7FF4D97204EDEE3004F0361 /* Application Delegate */ = {
+			isa = PBXGroup;
+			children = (
+				B7FF4D85204EDECC004F0361 /* AppDelegate.swift */,
+			);
+			path = "Application Delegate";
+			sourceTree = "<group>";
+		};
+		B7FF4D98204EDF06004F0361 /* View Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				B7FF4D99204EDF0F004F0361 /* Root View Controller */,
+			);
+			path = "View Controllers";
+			sourceTree = "<group>";
+		};
+		B7FF4D99204EDF0F004F0361 /* Root View Controller */ = {
+			isa = PBXGroup;
+			children = (
+				B7FF4D87204EDECC004F0361 /* RootViewController.swift */,
+			);
+			path = "Root View Controller";
+			sourceTree = "<group>";
+		};
+		B7FF4D9A204EDF1E004F0361 /* Storyboards */ = {
+			isa = PBXGroup;
+			children = (
+				B7FF4D89204EDECC004F0361 /* Main.storyboard */,
+				B7FF4D8E204EDECC004F0361 /* LaunchScreen.storyboard */,
+			);
+			path = Storyboards;
+			sourceTree = "<group>";
+		};
+		B7FF4D9B204EDF25004F0361 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				B7FF4D8C204EDECC004F0361 /* Assets.xcassets */,
+			);
+			path = Resources;
+			sourceTree = "<group>";
+		};
+		B7FF4D9C204EDF2D004F0361 /* Supporting files */ = {
+			isa = PBXGroup;
+			children = (
+				B7FF4D91204EDECC004F0361 /* Info.plist */,
+			);
+			path = "Supporting files";
+			sourceTree = "<group>";
+		};
+		B7FF4D9D204EE087004F0361 /* Managers */ = {
+			isa = PBXGroup;
+			children = (
+				B7FF4D9E204EE0A2004F0361 /* CoreDataManger.swift */,
+			);
+			path = Managers;
+			sourceTree = "<group>";
+		};
+		B7FF4DA0204EE566004F0361 /* Core Data */ = {
+			isa = PBXGroup;
+			children = (
+				B7FF4DA1204EE575004F0361 /* Notes.xcdatamodeld */,
+			);
+			path = "Core Data";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -136,8 +206,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				B7FF4D88204EDECC004F0361 /* ViewController.swift in Sources */,
+				B7FF4D88204EDECC004F0361 /* RootViewController.swift in Sources */,
+				B7FF4D9F204EE0A2004F0361 /* CoreDataManger.swift in Sources */,
 				B7FF4D86204EDECC004F0361 /* AppDelegate.swift in Sources */,
+				B7FF4DA3204EE575004F0361 /* Notes.xcdatamodeld in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -276,7 +348,8 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 9YH3LZQ69V;
-				INFOPLIST_FILE = "Notes(Core Data Example)/Info.plist";
+				INFOPLIST_FILE = "$(SRCROOT)/Notes(Core Data Example)/Supporting files/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "arturazarau.Notes-Core-Data-Example-";
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -291,7 +364,8 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 9YH3LZQ69V;
-				INFOPLIST_FILE = "Notes(Core Data Example)/Info.plist";
+				INFOPLIST_FILE = "$(SRCROOT)/Notes(Core Data Example)/Supporting files/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "arturazarau.Notes-Core-Data-Example-";
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -322,6 +396,19 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		B7FF4DA1204EE575004F0361 /* Notes.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				B7FF4DA2204EE575004F0361 /* Notes.xcdatamodel */,
+			);
+			currentVersion = B7FF4DA2204EE575004F0361 /* Notes.xcdatamodel */;
+			path = Notes.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
 	};
 	rootObject = B7FF4D7A204EDECC004F0361 /* Project object */;
 }
