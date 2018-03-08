@@ -9,6 +9,8 @@
 /* Begin PBXBuildFile section */
 		B7C6D3442050975C003B395D /* AddNoteViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7C6D3432050975C003B395D /* AddNoteViewController.swift */; };
 		B7C6D34720509838003B395D /* UIViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7C6D34620509838003B395D /* UIViewController.swift */; };
+		B7C6D34A20513D91003B395D /* NoteTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7C6D34920513D91003B395D /* NoteTableViewCell.swift */; };
+		B7C6D34D20514C0C003B395D /* Note.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7C6D34C20514C0C003B395D /* Note.swift */; };
 		B7FF4D86204EDECC004F0361 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7FF4D85204EDECC004F0361 /* AppDelegate.swift */; };
 		B7FF4D88204EDECC004F0361 /* NotesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7FF4D87204EDECC004F0361 /* NotesViewController.swift */; };
 		B7FF4D8B204EDECC004F0361 /* Notes.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B7FF4D89204EDECC004F0361 /* Notes.storyboard */; };
@@ -21,6 +23,8 @@
 /* Begin PBXFileReference section */
 		B7C6D3432050975C003B395D /* AddNoteViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddNoteViewController.swift; sourceTree = "<group>"; };
 		B7C6D34620509838003B395D /* UIViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIViewController.swift; sourceTree = "<group>"; };
+		B7C6D34920513D91003B395D /* NoteTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoteTableViewCell.swift; sourceTree = "<group>"; };
+		B7C6D34C20514C0C003B395D /* Note.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Note.swift; sourceTree = "<group>"; };
 		B7FF4D82204EDECC004F0361 /* Notes(Core Data Example).app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Notes(Core Data Example).app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		B7FF4D85204EDECC004F0361 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		B7FF4D87204EDECC004F0361 /* NotesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotesViewController.swift; sourceTree = "<group>"; };
@@ -55,6 +59,22 @@
 			isa = PBXGroup;
 			children = (
 				B7C6D34620509838003B395D /* UIViewController.swift */,
+			);
+			path = Extensions;
+			sourceTree = "<group>";
+		};
+		B7C6D34820513D77003B395D /* Table View Cells */ = {
+			isa = PBXGroup;
+			children = (
+				B7C6D34920513D91003B395D /* NoteTableViewCell.swift */,
+			);
+			path = "Table View Cells";
+			sourceTree = "<group>";
+		};
+		B7C6D34B20514BFD003B395D /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				B7C6D34C20514C0C003B395D /* Note.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -110,6 +130,7 @@
 		B7FF4D99204EDF0F004F0361 /* Notes View Controller */ = {
 			isa = PBXGroup;
 			children = (
+				B7C6D34820513D77003B395D /* Table View Cells */,
 				B7FF4D87204EDECC004F0361 /* NotesViewController.swift */,
 			);
 			path = "Notes View Controller";
@@ -151,6 +172,7 @@
 		B7FF4DA0204EE566004F0361 /* Core Data */ = {
 			isa = PBXGroup;
 			children = (
+				B7C6D34B20514BFD003B395D /* Extensions */,
 				B7FF4DA1204EE575004F0361 /* Notes.xcdatamodeld */,
 			);
 			path = "Core Data";
@@ -231,8 +253,10 @@
 				B7FF4D88204EDECC004F0361 /* NotesViewController.swift in Sources */,
 				B7FF4D9F204EE0A2004F0361 /* CoreDataManger.swift in Sources */,
 				B7C6D34720509838003B395D /* UIViewController.swift in Sources */,
+				B7C6D34D20514C0C003B395D /* Note.swift in Sources */,
 				B7FF4D86204EDECC004F0361 /* AppDelegate.swift in Sources */,
 				B7C6D3442050975C003B395D /* AddNoteViewController.swift in Sources */,
+				B7C6D34A20513D91003B395D /* NoteTableViewCell.swift in Sources */,
 				B7FF4DA3204EE575004F0361 /* Notes.xcdatamodeld in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
