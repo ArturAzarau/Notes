@@ -184,6 +184,8 @@ final class NotesViewController: UIViewController {
     }
 }
 
+// MARK: - TableView Data Source
+
 extension NotesViewController: UITableViewDataSource {
     
     func numberOfSections(in tableView: UITableView) -> Int {
@@ -209,5 +211,15 @@ extension NotesViewController: UITableViewDataSource {
         cell.updatedAtLabel.text = updatedAtDateFormatter.string(from: note.updatedAtAsDate)
         
         return cell
+    }
+    
+    func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
+        guard editingStyle == .delete else { return }
+        
+        guard let note = notes?[indexPath.row] else {
+            fatalError("Unexpected Index Path")
+        }
+        
+        note.managedObjectContext?.delete(note)
     }
 }
