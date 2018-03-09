@@ -80,6 +80,7 @@
                                                     <outlet property="contentsLabel" destination="B9C-er-hxd" id="15w-7o-t4t"/>
                                                     <outlet property="titleLabel" destination="6sc-fs-Wax" id="231-v2-DIB"/>
                                                     <outlet property="updatedAtLabel" destination="ou8-kz-eeI" id="Yoa-wx-ElU"/>
+                                                    <segue destination="MTl-Oz-gtx" kind="show" identifier="Note" id="TQy-ju-u1E"/>
                                                 </connections>
                                             </tableViewCell>
                                         </prototypes>
@@ -125,6 +126,48 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="364" y="31.934032983508249"/>
+        </scene>
+        <!--Note View Controller-->
+        <scene sceneID="T9S-x5-mfe">
+            <objects>
+                <viewController id="MTl-Oz-gtx" customClass="NoteViewController" customModule="Notes_Core_Data_Example_" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="Tv4-u6-eb2">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="7dx-CQ-ZOa">
+                                <rect key="frame" x="20" y="122" width="335" height="525"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                            </textView>
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="0Io-aJ-jMK">
+                                <rect key="frame" x="20" y="84" width="335" height="30"/>
+                                <nil key="textColor"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="fIZ-pE-0Ta" firstAttribute="trailing" secondItem="0Io-aJ-jMK" secondAttribute="trailing" constant="20" id="5Ba-Rh-aIJ"/>
+                            <constraint firstItem="7dx-CQ-ZOa" firstAttribute="leading" secondItem="fIZ-pE-0Ta" secondAttribute="leading" constant="20" id="9LL-aF-O6h"/>
+                            <constraint firstItem="0Io-aJ-jMK" firstAttribute="top" secondItem="fIZ-pE-0Ta" secondAttribute="top" constant="20" id="A4O-dO-jbS"/>
+                            <constraint firstItem="7dx-CQ-ZOa" firstAttribute="top" secondItem="0Io-aJ-jMK" secondAttribute="bottom" constant="8" id="HGH-Rw-Rag"/>
+                            <constraint firstItem="0Io-aJ-jMK" firstAttribute="leading" secondItem="fIZ-pE-0Ta" secondAttribute="leading" constant="20" id="Y3Y-bs-DuA"/>
+                            <constraint firstItem="fIZ-pE-0Ta" firstAttribute="trailing" secondItem="7dx-CQ-ZOa" secondAttribute="trailing" constant="20" id="bql-h9-Cqq"/>
+                            <constraint firstItem="fIZ-pE-0Ta" firstAttribute="bottom" secondItem="7dx-CQ-ZOa" secondAttribute="bottom" constant="20" id="v1O-F6-iGg"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="fIZ-pE-0Ta"/>
+                    </view>
+                    <connections>
+                        <outlet property="contentsTextView" destination="7dx-CQ-ZOa" id="Dul-eW-gWD"/>
+                        <outlet property="titleTextField" destination="0Io-aJ-jMK" id="nyF-Yr-p6P"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="j3u-he-h1S" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1281" y="421"/>
         </scene>
         <!--Add Note View Controller-->
         <scene sceneID="Z4G-0i-DPM">
@@ -177,7 +220,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Hly-kU-8sO" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1261.5999999999999" y="31.934032983508249"/>
+            <point key="canvasLocation" x="1281" y="-283"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="WxF-93-uNW">

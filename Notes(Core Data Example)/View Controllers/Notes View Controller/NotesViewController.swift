@@ -17,6 +17,8 @@ final class NotesViewController: UIViewController {
         
         static let AddNote = "AddNote"
         
+        static let Note = "Note"
+        
     }
     
     // MARK: - Properties
@@ -60,11 +62,9 @@ final class NotesViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        title = "Notes"
-        
         setupView()
         fetchNotes()
+        setupNotificationHandling()
     }
     
     // MARK: - Navigation
@@ -77,6 +77,12 @@ final class NotesViewController: UIViewController {
             guard let destination = segue.destination as? AddNoteViewController else { return }
             
             destination.managedObjectContext = coreDataManager.managedObjectContext
+            
+        case Segue.Note:
+            guard let destination = segue.destination as? NoteViewController else { return }
+            
+            guard let indexPath = tableView.indexPathForSelectedRow, let note = notes?[indexPath.row] else { return }
+            destination.note = note
         default:
             break
         }
@@ -85,6 +91,22 @@ final class NotesViewController: UIViewController {
     // MARK: - View Methods
     
     private func setupView() {
+        
+        func setupTitle() {
+            title = "Notes"
+        }
+        
+        func setupMessageLabel() {
+            messageLabel.text = "You don't have any notes yet"
+        }
+        
+        func setupTableView() {
+            tableView.isHidden = true
+            tableView.estimatedRowHeight = estimatedRowHeight
+            tableView.rowHeight = UITableViewAutomaticDimension
+        }
+        
+        setupTitle()
         setupMessageLabel()
         setupTableView()
     }
@@ -93,21 +115,7 @@ final class NotesViewController: UIViewController {
         tableView.isHidden = !hasNotes
         messageLabel.isHidden = hasNotes
     }
-    
-    // MARK: -
-    
-    private func setupMessageLabel() {
-        messageLabel.text = "You don't have any notes yet"
-    }
-    
-    // MARK: -
-    
-    private func setupTableView() {
-        tableView.isHidden = true
-        tableView.estimatedRowHeight = estimatedRowHeight
-        tableView.rowHeight = UITableViewAutomaticDimension
-    }
-    
+
     // MARK: - Helper Methods
     
     private func fetchNotes() {
@@ -123,6 +131,55 @@ final class NotesViewController: UIViewController {
             } catch {
                 print("Unable to Execute Fetch Request")
             }
+        }
+    }
+    
+    private func setupNotificationHandling() {
+        let notificationCenter = NotificationCenter.default
+        notificationCenter.addObserver(self,
+                                       selector: #selector(managedObjectContextObjectsDidChange(_:)),
+                                       name: Notification.Name.NSManagedObjectContextObjectsDidChange,
+                                       object: coreDataManager.managedObjectContext)
+    }
+    
+    @objc private func managedObjectContextObjectsDidChange(_ notification: Notification) {
+        guard let userInfo = notification.userInfo else { return }
+        
+        var notesDidChange = false
+        
+        if let inserts = userInfo[NSInsertedObjectsKey] as? Set<NSManagedObject> {
+            for insert in inserts {
+                if let note = insert as? Note {
+                    notes?.append(note)
+                    notesDidChange = true
+                }
+            }
+        }
+        
+        if let updates = userInfo[NSUpdatedObjectsKey] as? Set<NSManagedObject> {
+            for update in updates {
+                if let _ = update as? Note {
+                    notesDidChange = true
+                }
+            }
+        }
+        
+        if let deletes = userInfo[NSDeletedObjectsKey] as? Set<NSManagedObject> {
+            for delete in deletes {
+                if let note = delete as? Note {
+                    if let index = notes?.index(of: note) {
+                        notes?.remove(at: index)
+                        notesDidChange = true
+                    }
+                }
+            }
+        }
+        
+        if notesDidChange {
+            notes?.sort(by: { $0.updatedAtAsDate > $1.updatedAtAsDate })
+            
+            tableView.reloadData()
+            updateView()
         }
     }
 }
