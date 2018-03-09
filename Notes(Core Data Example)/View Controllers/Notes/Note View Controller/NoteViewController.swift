@@ -10,6 +10,14 @@ import UIKit
 
 final class NoteViewController: UIViewController {
     
+    // MARK: - Segues
+    
+    private enum Segue {
+        
+        static let Categories = "Categories"
+        
+    }
+    
     // MARK: - Properties
     
     @IBOutlet weak var titleTextField: UITextField!
@@ -52,6 +60,17 @@ final class NoteViewController: UIViewController {
     // MARK: - Navigation
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        guard let identifier = segue.identifier else { return }
+        
+        switch identifier {
+        case Segue.Categories:
+            guard let destination = segue.destination as? CategoriesViewController else {
+                return
+            }
+            
+            destination.managedObjectContext = note?.managedObjectContext
+        default: break
+        }
         
     }
     
@@ -76,5 +95,24 @@ final class NoteViewController: UIViewController {
         setupContentsTextView()
     }
     
+    // MARK: -
+    
+    private func setupTitleTextField() {
+        // Configure Title Text Field
+        titleTextField.text = note?.title
+    }
+    
+    private func setupContentsTextView() {
+        // Configure Contents Text View
+        contentsTextView.text = note?.contents
+    }
+    
+    private func setupCategoryLabel() {
+        updateCategoryLabel()
+    }
+    
+    private func updateCategoryLabel() {
+        
+    }
     
 }

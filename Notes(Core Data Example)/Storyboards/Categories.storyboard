@@ -26,10 +26,10 @@
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Jx8-mH-bGK">
                                 <rect key="frame" x="0.0" y="20" width="375" height="647"/>
                                 <subviews>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Hjl-el-s75">
-                                        <rect key="frame" x="20" y="313" width="335" height="20.5"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                        <nil key="textColor"/>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Hjl-el-s75">
+                                        <rect key="frame" x="20" y="314.5" width="335" height="18"/>
+                                        <fontDescription key="fontDescription" name="HelveticaNeue-Light" family="Helvetica Neue" pointSize="15"/>
+                                        <color key="textColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="KqG-7Y-rC9">
@@ -73,7 +73,7 @@
                                     <constraint firstItem="KqG-7Y-rC9" firstAttribute="top" secondItem="Jx8-mH-bGK" secondAttribute="top" id="Ke9-de-fi6"/>
                                     <constraint firstItem="KqG-7Y-rC9" firstAttribute="leading" secondItem="Jx8-mH-bGK" secondAttribute="leading" id="L6P-BJ-H05"/>
                                     <constraint firstAttribute="trailing" secondItem="KqG-7Y-rC9" secondAttribute="trailing" id="OgW-3m-eJq"/>
-                                    <constraint firstItem="Hjl-el-s75" firstAttribute="centerY" secondItem="Jx8-mH-bGK" secondAttribute="centerY" id="Zdq-l9-0cA"/>
+                                    <constraint firstItem="Hjl-el-s75" firstAttribute="centerY" secondItem="KqG-7Y-rC9" secondAttribute="centerY" id="Zdq-l9-0cA"/>
                                     <constraint firstAttribute="trailing" secondItem="Hjl-el-s75" secondAttribute="trailing" constant="20" id="bGg-aD-nUD"/>
                                     <constraint firstItem="Hjl-el-s75" firstAttribute="leading" secondItem="Jx8-mH-bGK" secondAttribute="leading" constant="20" id="iEJ-39-XL4"/>
                                     <constraint firstAttribute="bottom" secondItem="KqG-7Y-rC9" secondAttribute="bottom" id="kcH-VI-7EG"/>
@@ -90,7 +90,7 @@
                         <viewLayoutGuide key="safeArea" id="M32-Uu-eNm"/>
                     </view>
                     <connections>
-                        <outlet property="nameLabel" destination="Hjl-el-s75" id="oPa-Cr-Tju"/>
+                        <outlet property="messageLabel" destination="Hjl-el-s75" id="dVh-c2-4R3"/>
                         <outlet property="tableView" destination="KqG-7Y-rC9" id="8NK-ga-KiB"/>
                         <segue destination="s5W-ok-GXu" kind="show" identifier="AddCategory" id="de4-DB-VVK"/>
                     </connections>
