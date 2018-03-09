@@ -12,6 +12,11 @@
 		B7C6D34A20513D91003B395D /* NoteTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7C6D34920513D91003B395D /* NoteTableViewCell.swift */; };
 		B7C6D34D20514C0C003B395D /* Note.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7C6D34C20514C0C003B395D /* Note.swift */; };
 		B7FF03962052CC9100958DF4 /* NoteViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7FF03952052CC9100958DF4 /* NoteViewController.swift */; };
+		B7FF0399205300CA00958DF4 /* Categories.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B7FF0398205300CA00958DF4 /* Categories.storyboard */; };
+		B7FF039D205301F500958DF4 /* CategoryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7FF039C205301F500958DF4 /* CategoryViewController.swift */; };
+		B7FF03A02053031E00958DF4 /* AddCategoryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7FF039F2053031E00958DF4 /* AddCategoryViewController.swift */; };
+		B7FF03A3205309D700958DF4 /* CategoriesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7FF03A2205309D700958DF4 /* CategoriesViewController.swift */; };
+		B7FF03A620530A7300958DF4 /* CategoryTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7FF03A520530A7300958DF4 /* CategoryTableViewCell.swift */; };
 		B7FF4D86204EDECC004F0361 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7FF4D85204EDECC004F0361 /* AppDelegate.swift */; };
 		B7FF4D88204EDECC004F0361 /* NotesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7FF4D87204EDECC004F0361 /* NotesViewController.swift */; };
 		B7FF4D8B204EDECC004F0361 /* Notes.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B7FF4D89204EDECC004F0361 /* Notes.storyboard */; };
@@ -27,6 +32,11 @@
 		B7C6D34920513D91003B395D /* NoteTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoteTableViewCell.swift; sourceTree = "<group>"; };
 		B7C6D34C20514C0C003B395D /* Note.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Note.swift; sourceTree = "<group>"; };
 		B7FF03952052CC9100958DF4 /* NoteViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoteViewController.swift; sourceTree = "<group>"; };
+		B7FF0398205300CA00958DF4 /* Categories.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Categories.storyboard; sourceTree = "<group>"; };
+		B7FF039C205301F500958DF4 /* CategoryViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryViewController.swift; sourceTree = "<group>"; };
+		B7FF039F2053031E00958DF4 /* AddCategoryViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddCategoryViewController.swift; sourceTree = "<group>"; };
+		B7FF03A2205309D700958DF4 /* CategoriesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoriesViewController.swift; sourceTree = "<group>"; };
+		B7FF03A520530A7300958DF4 /* CategoryTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryTableViewCell.swift; sourceTree = "<group>"; };
 		B7FF4D82204EDECC004F0361 /* Notes(Core Data Example).app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Notes(Core Data Example).app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		B7FF4D85204EDECC004F0361 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		B7FF4D87204EDECC004F0361 /* NotesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotesViewController.swift; sourceTree = "<group>"; };
@@ -89,6 +99,59 @@
 			path = "Note View Controller";
 			sourceTree = "<group>";
 		};
+		B7FF03972053006100958DF4 /* Notes */ = {
+			isa = PBXGroup;
+			children = (
+				B7FF4D99204EDF0F004F0361 /* Notes View Controller */,
+				B7C6D342205094FA003B395D /* Add Note View Controller */,
+				B7FF03942052CC7C00958DF4 /* Note View Controller */,
+			);
+			path = Notes;
+			sourceTree = "<group>";
+		};
+		B7FF039A205301DB00958DF4 /* Categories */ = {
+			isa = PBXGroup;
+			children = (
+				B7FF03A1205309AE00958DF4 /* Categories View Controller */,
+				B7FF039E2053030C00958DF4 /* Add Category View Controller */,
+				B7FF039B205301E300958DF4 /* Category View Controller */,
+			);
+			path = Categories;
+			sourceTree = "<group>";
+		};
+		B7FF039B205301E300958DF4 /* Category View Controller */ = {
+			isa = PBXGroup;
+			children = (
+				B7FF039C205301F500958DF4 /* CategoryViewController.swift */,
+			);
+			path = "Category View Controller";
+			sourceTree = "<group>";
+		};
+		B7FF039E2053030C00958DF4 /* Add Category View Controller */ = {
+			isa = PBXGroup;
+			children = (
+				B7FF039F2053031E00958DF4 /* AddCategoryViewController.swift */,
+			);
+			path = "Add Category View Controller";
+			sourceTree = "<group>";
+		};
+		B7FF03A1205309AE00958DF4 /* Categories View Controller */ = {
+			isa = PBXGroup;
+			children = (
+				B7FF03A420530A5400958DF4 /* Table View Cells */,
+				B7FF03A2205309D700958DF4 /* CategoriesViewController.swift */,
+			);
+			path = "Categories View Controller";
+			sourceTree = "<group>";
+		};
+		B7FF03A420530A5400958DF4 /* Table View Cells */ = {
+			isa = PBXGroup;
+			children = (
+				B7FF03A520530A7300958DF4 /* CategoryTableViewCell.swift */,
+			);
+			path = "Table View Cells";
+			sourceTree = "<group>";
+		};
 		B7FF4D79204EDECC004F0361 = {
 			isa = PBXGroup;
 			children = (
@@ -131,9 +194,8 @@
 		B7FF4D98204EDF06004F0361 /* View Controllers */ = {
 			isa = PBXGroup;
 			children = (
-				B7FF03942052CC7C00958DF4 /* Note View Controller */,
-				B7C6D342205094FA003B395D /* Add Note View Controller */,
-				B7FF4D99204EDF0F004F0361 /* Notes View Controller */,
+				B7FF039A205301DB00958DF4 /* Categories */,
+				B7FF03972053006100958DF4 /* Notes */,
 			);
 			path = "View Controllers";
 			sourceTree = "<group>";
@@ -152,6 +214,7 @@
 			children = (
 				B7FF4D89204EDECC004F0361 /* Notes.storyboard */,
 				B7FF4D8E204EDECC004F0361 /* LaunchScreen.storyboard */,
+				B7FF0398205300CA00958DF4 /* Categories.storyboard */,
 			);
 			path = Storyboards;
 			sourceTree = "<group>";
@@ -250,6 +313,7 @@
 			files = (
 				B7FF4D90204EDECC004F0361 /* LaunchScreen.storyboard in Resources */,
 				B7FF4D8D204EDECC004F0361 /* Assets.xcassets in Resources */,
+				B7FF0399205300CA00958DF4 /* Categories.storyboard in Resources */,
 				B7FF4D8B204EDECC004F0361 /* Notes.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -261,7 +325,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B7FF039D205301F500958DF4 /* CategoryViewController.swift in Sources */,
 				B7FF4D88204EDECC004F0361 /* NotesViewController.swift in Sources */,
+				B7FF03A3205309D700958DF4 /* CategoriesViewController.swift in Sources */,
 				B7FF4D9F204EE0A2004F0361 /* CoreDataManger.swift in Sources */,
 				B7C6D34720509838003B395D /* UIViewController.swift in Sources */,
 				B7C6D34D20514C0C003B395D /* Note.swift in Sources */,
@@ -270,6 +336,8 @@
 				B7C6D3442050975C003B395D /* AddNoteViewController.swift in Sources */,
 				B7C6D34A20513D91003B395D /* NoteTableViewCell.swift in Sources */,
 				B7FF4DA3204EE575004F0361 /* Notes.xcdatamodeld in Sources */,
+				B7FF03A620530A7300958DF4 /* CategoryTableViewCell.swift in Sources */,
+				B7FF03A02053031E00958DF4 /* AddCategoryViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
