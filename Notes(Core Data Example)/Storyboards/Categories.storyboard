@@ -58,7 +58,7 @@
                                                 </tableViewCellContentView>
                                                 <connections>
                                                     <outlet property="nameLabel" destination="VHf-rx-mi9" id="Z4Z-fk-lTe"/>
-                                                    <segue destination="jnt-8Z-BqX" kind="show" identifier="Category" id="u9y-Ao-DSl"/>
+                                                    <segue destination="jnt-8Z-BqX" kind="show" identifier="Category" trigger="accessoryAction" id="bR4-vC-z4y"/>
                                                 </connections>
                                             </tableViewCell>
                                         </prototypes>

@@ -27,18 +27,18 @@ final class CategoriesViewController: UIViewController {
     
     // MARK: -
     
-    var managedObjectContext: NSManagedObjectContext?
+    var note: Note?
     
     // MARK: -
     
     private lazy var fetchedResultsController: NSFetchedResultsController<Category> = {
-        guard let managedObjectContext = self.managedObjectContext else {
+        guard let managedObjectContext = self.note?.managedObjectContext else {
             fatalError("No Managed Object Context Found")
         }
         
         let fetchRequest: NSFetchRequest<Category> = Category.fetchRequest()
         
-        fetchRequest.sortDescriptors = [NSSortDescriptor(key: #keyPath(Category.name), ascending: true)]
+        fetchRequest.sortDescriptors = [NSSortDescriptor(key: "name", ascending: true)]
         
         let fetchedResultsController = NSFetchedResultsController(fetchRequest: fetchRequest,
                                                                   managedObjectContext: managedObjectContext,
@@ -62,6 +62,7 @@ final class CategoriesViewController: UIViewController {
         
         do {
             try fetchedResultsController.performFetch()
+            
         } catch {
             let fetchError = error as NSError
             print("Unable to Perform Fetch Request")
@@ -83,7 +84,7 @@ final class CategoriesViewController: UIViewController {
             }
             
             // Configure Destination
-            destination.managedObjectContext = managedObjectContext
+            destination.managedObjectContext = self.note?.managedObjectContext
         case Segue.Category:
             guard let destination = segue.destination as? CategoryViewController else {
                 return
@@ -118,6 +119,7 @@ final class CategoriesViewController: UIViewController {
         var hasCategories = false
         
         if let fetchedObjects = fetchedResultsController.fetchedObjects {
+            print(fetchedObjects)
             hasCategories = fetchedObjects.count > 0
         }
         
@@ -210,12 +212,18 @@ extension CategoriesViewController: UITableViewDataSource {
         return cell
     }
     
-    func configure(_ cell: CategoryTableViewCell, at indexPath: IndexPath) {
+    private func configure(_ cell: CategoryTableViewCell, at indexPath: IndexPath) {
         // Fetch Note
         let category = fetchedResultsController.object(at: indexPath)
         
         // Configure Cell
         cell.nameLabel.text = category.name
+        
+        if note?.category == category {
+            cell.nameLabel.textColor = .green
+        } else {
+            cell.nameLabel.textColor = .black
+        }
     }
     
     func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
@@ -225,7 +233,7 @@ extension CategoriesViewController: UITableViewDataSource {
         let category = fetchedResultsController.object(at: indexPath)
         
         // Delete Category
-        managedObjectContext?.delete(category)
+        self.note?.managedObjectContext?.delete(category)
     }
     
 }
@@ -234,6 +242,12 @@ extension CategoriesViewController: UITableViewDelegate {
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: true)
+        
+        let category = fetchedResultsController.object(at: indexPath)
+        
+        note?.category = category
+        
+        navigationController?.popViewController(animated: true)
     }
     
 }

@@ -50,6 +50,6 @@ final class AddNoteViewController: UIViewController {
         note.updatedAt = Date()
         note.contents = contentsTextView.text
         
-        navigationController?.popViewController(animated: true)
+        _ = navigationController?.popViewController(animated: true)
     }
 }

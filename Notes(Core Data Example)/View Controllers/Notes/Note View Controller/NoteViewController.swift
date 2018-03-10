@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import CoreData
 
 final class NoteViewController: UIViewController {
     
@@ -32,6 +33,8 @@ final class NoteViewController: UIViewController {
         super.viewDidLoad()
         
         setupView()
+        setupNotificationHandling()
+        setupCategoryLabel()
     }
     
     override func viewWillDisappear(_ animated: Bool) {
@@ -68,7 +71,8 @@ final class NoteViewController: UIViewController {
                 return
             }
             
-            destination.managedObjectContext = note?.managedObjectContext
+            destination.note = self.note
+            print("destination configured")
         default: break
         }
         
@@ -112,7 +116,23 @@ final class NoteViewController: UIViewController {
     }
     
     private func updateCategoryLabel() {
+        categoryLabel.text = note?.category?.name ?? "No Category"
+    }
+    
+    private func setupNotificationHandling() {
+        let notificationCenter = NotificationCenter.default
+        notificationCenter.addObserver(self, selector: #selector(managedObjectContextDidChange(_:)),
+                                       name: Notification.Name.NSManagedObjectContextObjectsDidChange,
+                                       object: note?.managedObjectContext)
+    }
+    
+    @objc private func managedObjectContextDidChange(_ notification: Notification) {
+        guard let userInfo = notification.userInfo else { return }
+        guard let updates = userInfo[NSUpdatedObjectsKey] as? Set<NSManagedObject> else { return }
         
+        if (updates.filter { return $0 == note }).count > 0 {
+            updateCategoryLabel()
+        }
     }
     
 }
